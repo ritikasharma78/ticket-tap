@@ -1,6 +1,6 @@
 import React from "react";
 import { dummyShowsData } from "../../assets/assets";
-import MovieCard from "../components/MovieCard";
+import MovieCard from "../components/movieCard";
 import BlurCircle from "../components/blurCircle";
 
 const Favourite = () => {
