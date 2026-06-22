@@ -8,6 +8,7 @@ import MyBookings from "./pages/myBookings";
 import MovieDetails from "./pages/movieDetails";
 import SeatLayout from "./pages/seatLayout";
 import Footer from "./components/footer";
+import Loading from "./components/loading.jsx";
 import { Toaster } from "react-hot-toast";
 import Layout from "./pages/admin/Layout.jsx";
 import Dashboard from "./pages/admin/Dashboard.jsx";
@@ -16,6 +17,7 @@ import ListShows from "./pages/admin/ListShows.jsx";
 import ListBookings from "./pages/admin/ListBookings.jsx";
 import { useAppContext } from "./context/AppContext.jsx";
 import { SignIn } from "@clerk/react";
+
 
 const App = () => {
   const isAdminRoute = useLocation().pathname.startsWith("/admin");
@@ -33,6 +35,7 @@ const App = () => {
         <Route path="/movies/:id/:date" element={<SeatLayout />} />
         <Route path="/favourite" element={<Favourite />} />
         <Route path="/my-bookings" element={<MyBookings />} />
+        <Route path="/loading/:nextUrl" element={<Loading />} />
 
         <Route
           path="/admin/*"

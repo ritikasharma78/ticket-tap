@@ -45,7 +45,7 @@ const SeatLayout = () => {
     if (!selectedSeats.includes(seatId) && selectedSeats.length > 4) {
       return toast("You can only select 5 seats");
     }
-     if (occupiedSeats.includes(seatId)) {
+    if (occupiedSeats.includes(seatId)) {
       return toast("This seat is already booked");
     }
     setSelectedSeats((prev) =>
@@ -101,12 +101,11 @@ const SeatLayout = () => {
       const { data } = await axios.post(
         "/api/booking/create",
         { showId: selectedTime.showId, selectedSeats },
-        { headers: { Authorization: `Bearer ${await getToken()}` } }
+        { headers: { Authorization: `Bearer ${await getToken()}` } },
       );
 
       if (data.success) {
-      toast.success(data.message);
-        navigate('/my-bookings')
+        window.location.href = data.url;
       } else {
         toast.error(data.message);
       }
