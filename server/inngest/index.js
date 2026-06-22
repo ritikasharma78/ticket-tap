@@ -57,7 +57,7 @@ const syncUserUpdation = inngest.createFunction(
 // Inngest Function to cancel booking and release seats of show after 10 minutes of booking created if payment is not made
 const releaseSeatsAndDeleteBooking = inngest.createFunction(
   {
-    id: "release-seats-delete-booking-v2",
+    id: "release-seats-delete-booking",
     triggers: { event: "app/checkpayment" },
 
 
@@ -87,7 +87,7 @@ const releaseSeatsAndDeleteBooking = inngest.createFunction(
 // Inngest Function to send email when user books a show
 const sendBookingConfirmationEmail = inngest.createFunction(
   {
-    id: "send-booking-confirmation-email-v2",
+    id: "send-booking-confirmation-email",
     triggers: { event: "app/show.booked" },
   },
   async ({ event, step }) => {
