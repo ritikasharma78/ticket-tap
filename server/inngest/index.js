@@ -56,7 +56,7 @@ const syncUserUpdation = inngest.createFunction(
 // Inngest Function to cancel booking and release seats of show after 10 minutes of booking created if payment is not made
 const releaseSeatsAndDeleteBooking = inngest.createFunction(
   {
-    id: "release-seats-delete-booking",
+    id: "release-seats-delete-booking-v2",
     triggers: { event: "app/checkpayment" },
   },
   async ({ event, step }) => {
@@ -84,7 +84,7 @@ const releaseSeatsAndDeleteBooking = inngest.createFunction(
 // Inngest Function to send email when user books a show
 const sendBookingConfirmationEmail = inngest.createFunction(
   {
-    id: "send-booking-confirmation-email",
+    id: "send-booking-confirmation-email-v2",
     triggers: { event: "app/show.booked" },
   },
   async ({ event, step }) => {
@@ -113,7 +113,7 @@ const sendBookingConfirmationEmail = inngest.createFunction(
           ).toLocaleTimeString("en-US", { timeZone: "Asia/Kolkata" })}
         </p>
         <p>Enjoy the show! 🍿</p>
-        <p>Thanks for booking with us!<br />- TicketTap Team</P>
+        <p>Thanks for booking with us!<br />- TicketTap Team</p>
       </div>`,
     });
   },
