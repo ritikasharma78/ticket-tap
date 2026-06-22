@@ -11,7 +11,7 @@ export const isAdmin = async (req, res) => {
 
 export const getDashboardData = async (req, res) => {
   try {
-     console.log("dashboard hit");
+    // console.log("dashboard hit");
     const bookings = await Booking.find({ isPaid: true });
     const activeShows = await Show.find({
       showDateTime: { $gte: new Date() },
@@ -36,10 +36,10 @@ export const getDashboardData = async (req, res) => {
 
 export const getAllShows = async (req, res) => {
   try {
-      console.log("all shows hit");
-    const shows = (
-      await Show.find({ showDateTime: { $gte: new Date() } }).populate("movie")
-    ).sort({ showDateTime: 1 });
+    // console.log("all shows hit");
+    const shows = await Show.find({ showDateTime: { $gte: new Date() } })
+      .populate("movie")
+      .sort({ showDateTime: 1 });
 
     res.json({ success: true, shows });
   } catch (error) {
@@ -52,9 +52,9 @@ export const getAllShows = async (req, res) => {
 
 export const getAllBookings = async (req, res) => {
   try {
-    console.log("all bookings hit");
+    // console.log("all bookings hit");
     const bookings = await Booking.find({})
-      
+
       .populate({
         path: "show",
         populate: { path: "movie" },
