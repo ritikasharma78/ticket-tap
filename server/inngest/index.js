@@ -59,8 +59,6 @@ const releaseSeatsAndDeleteBooking = inngest.createFunction(
   {
     id: "release-seats-delete-booking",
     triggers: { event: "app/checkpayment" },
-
-
   },
   async ({ event, step }) => {
     const tenMinutesLater = new Date(Date.now() + 10 * 60 * 1000);
@@ -91,18 +89,21 @@ const sendBookingConfirmationEmail = inngest.createFunction(
     triggers: { event: "app/show.booked" },
   },
   async ({ event, step }) => {
-    const { bookingId } = event.data;
-    const booking = await Booking.findById(bookingId)
-      .populate({
-        path: "show",
-        populate: { path: "movie", model: "Movie" },
-      })
-      .populate("user");
+    const booking = await step.run("fetch-booking", async () => {
+      return await Booking.findById(event.data.bookingId)
+        .populate({
+          path: "show",
+          populate: { path: "movie", model: "Movie" },
+        })
+        .populate("user")
+        .lean();
+    });
 
-    await sendEmail({
-      to: booking.user.email,
-      subject: `Payment Confirmation: "${booking.show.movie.title}" booked!`,
-      body: `<div style="font-family: Arial, sans-serif; line-height: 1.5;">
+    await step.run("send-confirmation-email", async () => {
+      await sendEmail({
+        to: booking.user.email,
+        subject: `Payment Confirmation: "${booking.show.movie.title}" booked!`,
+        body: `<div style="font-family: Arial, sans-serif; line-height: 1.5;">
         <h2>Hi ${booking.user.name},</h2>
         <p>Your booking for <strong style="color: #F84565;">"${
           booking.show.movie.title
@@ -118,6 +119,7 @@ const sendBookingConfirmationEmail = inngest.createFunction(
         <p>Enjoy the show! 🍿</p>
         <p>Thanks for booking with us!<br />- TicketTap Team</p>
       </div>`,
+      });
     });
   },
 );
