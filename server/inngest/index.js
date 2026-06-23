@@ -108,11 +108,7 @@ const sendBookingConfirmationEmail = inngest.createFunction(
   <div style="max-width: 540px; margin: 0 auto; border: 1px solid #e5e5e5; border-radius: 12px; overflow: hidden;">
 
     <div style="background: #F84565; padding: 28px 32px; text-align: center;">
-      <img
-  src="https://tickettap-movies.vercel.app/logo1.png"
-  alt="TicketTap"
-  style="height: 40px; display: block; margin: 0 auto;"
-/>
+      <p style="margin: 0; color: #fff; font-size: 24px; letter-spacing: 3px; text-transform: font-weight: 500;">TicketTap</p>
       <p style="margin: 6px 0 0; color: rgba(255,255,255,0.85); font-size: 12px; letter-spacing: 1px;">Your booking is confirmed 🎉</p>
     </div>
 
