@@ -48,22 +48,15 @@ const Navbar = () => {
         >
           Movies
         </Link>
-        <Link
+        {/* <Link
           onClick={() => {
             (scrollTo(0, 0), setIsOpen(false));
           }}
           to="/"
         >
           Theaters
-        </Link>
-        <Link
-          onClick={() => {
-            (scrollTo(0, 0), setIsOpen(false));
-          }}
-          to="/"
-        >
-          Releases
-        </Link>
+        </Link> */}
+        
         {favoriteMovies.length > 0 && (
           <Link
             onClick={() => {
@@ -73,7 +66,18 @@ const Navbar = () => {
           >
             Favourites
           </Link>
+
+
         )}
+
+        <Link
+          onClick={() => {
+            (scrollTo(0, 0), setIsOpen(false));
+          }}
+          to="/my-bookings"
+        >
+          My Bookings
+        </Link>
       </div>
 
       {/* user login and search icon */}
