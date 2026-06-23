@@ -22,7 +22,7 @@ const TrailerSection = () => {
           response.data.trailers.length > 0
         ) {
           setTrailers(response.data.trailers);
-          setCurrentTrailer(response.data.trailers[0]);
+          setCurrentTrailer(response.data.trailers[1]);
         } else {
           console.log("No trailers found in response");
         }

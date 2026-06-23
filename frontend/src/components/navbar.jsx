@@ -30,7 +30,7 @@ const Navbar = () => {
       <Link
         to="/"
         className={`max-md:flex-1 overflow-hidden transition-all duration-300 ${
-          showLogo ? "w-38 opacity-100" : "w-0 opacity-0"
+          showLogo ? "w-38 opacity-100" : "w-38 opacity-0"
         }`}
       >
         <img src={assets.logo1} alt="logo" className="w-38 h-auto" />
