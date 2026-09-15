@@ -69,29 +69,31 @@ const TrailerSection = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mt-8">
-        {trailers.map((trailer) => (
-          <div
-            key={trailer.id}
-            onClick={() => setCurrentTrailer(trailer)}
-            className={`relative cursor-pointer hover:scale-105 transition border-2 rounded-lg ${
-              currentTrailer.id === trailer.id
-                ? "border-primary"
-                : "border-transparent"
-            }`}
-          >
-            <img
-              src={trailer.image}
-              alt={trailer.title}
-              className="w-full h-36 object-cover rounded-lg brightness-75"
-            />
+      <div className="flex gap-4 mt-8 overflow-x-auto pb-2">
+  {trailers.map((trailer) => (
+    <div
+      key={trailer.id}
+      onClick={() => setCurrentTrailer(trailer)}
+      className={`relative cursor-pointer hover:scale-105 transition border-2 rounded-lg shrink-0 w-[180px] ${
+        currentTrailer.id === trailer.id
+          ? "border-primary"
+          : "border-transparent"
+      }`}
+    >
+      <img
+        src={trailer.image}
+        alt={trailer.title}
+        className="w-full h-36 object-cover rounded-lg brightness-75"
+      />
 
-            <PlayCircleIcon className="absolute top-1/2 left-1/2 w-10 h-10 -translate-x-1/2 -translate-y-1/2" />
+      <PlayCircleIcon className="absolute top-1/2 left-1/2 w-10 h-10 -translate-x-1/2 -translate-y-1/2" />
 
-            <p className="text-white text-xs mt-2 truncate">{trailer.title}</p>
-          </div>
-        ))}
-      </div>
+      <p className="text-white text-xs mt-2 truncate">
+        {trailer.title}
+      </p>
+    </div>
+  ))}
+</div>
     </div>
   );
 };
