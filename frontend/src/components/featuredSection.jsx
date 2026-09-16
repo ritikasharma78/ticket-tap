@@ -5,10 +5,10 @@ import BlurCircle from "./blurCircle";
 
 import MovieCard from "./movieCard";
 import { useAppContext } from "../context/AppContext";
-
+  
 const FeaturedSection = () => {
   const navigate = useNavigate();
-  const { shows} = useAppContext(); 
+  const {shows} = useAppContext(); 
   return (
     <div className="relative mx-auto max-w-7xl px-6 md:px-16 lg:px-24 xl:px-30 overflow-hidden">
       {/* title */}

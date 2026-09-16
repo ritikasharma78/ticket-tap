@@ -16,6 +16,7 @@ const Navbar = () => {
   const { favoriteMovies } = useAppContext();
 
   useEffect(() => {
+    
     const handleScroll = () => {
       setShowLogo(window.scrollY < 50);
     };

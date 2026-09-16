@@ -7,8 +7,10 @@ import { useAppContext } from "../context/AppContext.jsx";
 const MovieCard = ({ movie }) => {
   const navigate = useNavigate();
   const { image_base_url } = useAppContext();
+  console.log(movie)
 
   return (
+     
     <div
       className="flex flex-col justify-between p-3 bg-[#1b1a1a] rounded-2xl hover:-translate-y-1
     transition duration-300 w-56 h-[360px]"
@@ -22,7 +24,7 @@ const MovieCard = ({ movie }) => {
         alt=""
         className="w-full h-52 object-bottom-right cursor-pointer object-cover rounded-lg"
       />
-
+     
       <p className="font-semibold truncate mt-2">{movie.title}</p>
       <p className="text-gray-400 mt-2 text-xs">
         {new Date(movie.release_date).getFullYear()} ●{" "}

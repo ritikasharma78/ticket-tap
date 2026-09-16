@@ -53,7 +53,7 @@ const MyBookings = () => {
             Sign in to access your booking history.
           </p>
           <button
-            onClick={openSignIn} // ✅ no need for arrow wrapper
+            onClick={openSignIn} 
             className="bg-primary px-6 py-3 rounded-full font-medium cursor-pointer"
           >
             Sign In
@@ -77,14 +77,14 @@ const MyBookings = () => {
           <h1 className="text-lg font-semibold mb-4">My Bookings</h1>
           {bookings.map((item) => (
             <div
-              key={item._id} // ✅ use unique ID, not index
+              key={item._id} // 
               className="flex flex-col md:flex-row justify-between bg-primary/8 border border-primary/20 rounded-lg mt-4 p-2 max-w-3xl"
             >
               {/* Left side */}
               <div className="flex flex-col md:flex-row">
                 <img
                   src={image_base_url + item.show.movie.poster_path}
-                  alt={item.show.movie.title}  // ✅ meaningful alt text
+                  alt={item.show.movie.title}  
                   className="md:max-w-45 aspect-video h-auto object-cover object-bottom rounded"
                 />
                 <div className="flex flex-col p-4">

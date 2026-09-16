@@ -78,6 +78,7 @@ export const AppProvider = ({ children }) => {
       fetchFavoriteMovies();
     }
   }, [user]);
+  
   const value = {
     axios,
     fetchIsAdmin,

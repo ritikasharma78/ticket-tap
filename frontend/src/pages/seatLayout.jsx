@@ -23,7 +23,7 @@ const SeatLayout = () => {
   const [show, setShow] = useState(null);
   const [occupiedSeats, setOccupiedSeats] = useState([]);
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const { axios, getToken, user } = useAppContext();
 
@@ -52,7 +52,7 @@ const SeatLayout = () => {
       prev.includes(seatId)
         ? prev.filter((seat) => seat !== seatId)
         : [...prev, seatId],
-    );
+    ); //deselects
   };
 
   const renderSeats = (row, count = 8) => (
@@ -105,7 +105,7 @@ const SeatLayout = () => {
       );
 
       if (data.success) {
-        window.location.href = data.url;
+        window.location.href = data.url; //stripe redirect
       } else {
         toast.error(data.message);
       }
